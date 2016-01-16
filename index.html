@@ -133,20 +133,20 @@
 	});
 	$(document).ready(function() {
     	$('#fullpage').fullpage({
-    		anchors: ['page1', 'page2', 'page3', 'page4'],
+    		anchors: ['hom', 'des', 'cod', 'sci'],
     	});
 	});
 	$(document).on('click', '#designer', function(){
-  		$.fn.fullpage.moveTo('page2');
+  		$.fn.fullpage.moveTo('des');
 	});
 	$(document).on('click', '#coder', function(){
-  		$.fn.fullpage.moveTo('page3');
+  		$.fn.fullpage.moveTo('cod');
 	});
 	$(document).on('click', '#scientist', function(){
-  		$.fn.fullpage.moveTo('page4');
+  		$.fn.fullpage.moveTo('sci');
 	});
 	$(document).on('click', '#top', function(){
-  		$.fn.fullpage.moveTo('page1');
+  		$.fn.fullpage.moveTo('hom');
 	});
 </script>
 <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
