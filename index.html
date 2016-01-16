@@ -1,55 +1,220 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>HOWERHE</title>
-<!-- Bootstrap css, awesome web fonts, jQuery, Bootstrap Javascript, retina.js -->
-<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
-<link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-<script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<link href="http://cdn.bootcss.com/normalize/3.0.3/normalize.min.css" rel="stylesheet">
-<script type="text/javascript" src="http://cdn.bootcss.com/retina.js/1.3.0/retina.min.js"></script>
+<meta name="description" content="Hower HE's blog portal page">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>HOW'ER HE</title>
+<!-- Framework css and js -->
+<script src="https://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdn.bootcss.com/fullPage.js/2.7.6/jquery.fullPage.min.css">
+<script src="https://cdn.bootcss.com/fullPage.js/2.7.6/jquery.fullPage.min.js"></script>
+<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<script src="https://cdn.bootcss.com/retina.js/1.3.0/retina.min.js"></script>
+<!--  Web fonts -->
+<link href='http://fonts.useso.com/css?family=Oswald:300' rel='stylesheet' type='text/css'>
+<link href='http://fonts.useso.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'>
+<link href='http://fonts.useso.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+<link href='http://fonts.useso.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
 <!--  Customized style -->
 <style type="text/css">
-	body {
-		height: 100%;
-		width: 100%;
-		background-image: url('http://7xjuqe.com1.z0.glb.clouddn.com/background.jpg');
+	.container-fluid {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.section {
+		padding-left: 15px;
+		padding-right: 15px;
+		color: white;
+	}
+	.text-vertical {
+		position: relative;
+		top: 35%;
+		padding-top: 0px;
+		margin-top: 0px;
+	}
+	a, a:link, a:hover, a:visited, a:active {
+		color: inherit;
+		text-decoration: none;
+	}
+	.navi{
+		cursor: pointer;
+	}
+	.icon {
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+
+	#home {
+		font-family: 'Oswald', sans-serif;
+	}
+	#right {
+		background: url(home.jpg);
+		background-size: cover;
+		background-position:
+		center bottom;
+	}
+
+	#design {
+		background-image: url("design.jpg");
 		background-repeat: no-repeat;
-		background-attachment: fixed;
 		background-size: cover;
 		background-position: center;
-		color: #ddd;
+		font-family: "Source Sans Pro", sans-serif;
 	}
-	html {
-		height: 100%;
-		width: 100%;
+	#code {
+		padding-left: 100px;
+		padding-right: 100px;
+		background-color: #fefefe;
+		font-family: "Inconsolata", sans-serif;
+	}
+
+	#academics {
+		padding-left: 100px;
+		padding-right: 100px;
+		background-image: url("academics.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: right bottom;
+		font-family: 'EB Garamond', serif;
+	}
+	#academics h1 {
+		hyphens: auto;
+		-webkit-hyphens: auto;
+		-moz-hyphens: auto;
+		-ms-hyphens: auto;
+	}
+
+	@media (min-width: 768px){
+		.big {
+			font-size: calc(60px + 1vw);
+		}
+		.med {
+			font-size: calc(52px + 1vw);
+		}
+		.sml {
+			font-size: calc(36px + 1vw);
+		}
+		#left, #right {
+			height: 100%;
+		}
+		#jianshu {
+			font-size: calc(51px + 1vw);
+		}
+	}
+	@media (max-width: 767px) {
+		.big {
+			font-size: calc(30px + 3vw);
+		}
+		.med {
+			font-size: calc(21px + 3vw);
+		}
+		.sml {
+			font-size: calc(15px + 3vw);
+		}
+		#left, #right {
+			height: 50%;
+		}
+		#code, #academics {
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+		#jianshu {
+			font-size: calc(24px + 3vw);
+		}
 	}
 </style>
+<link rel="stylesheet" type="text/css" href="icon-jianshu.css">
+<script>
+	$('#fullpage').fullpage({
+  		
+	});
+	$(document).ready(function() {
+    	$('#fullpage').fullpage({
+    		anchors: ['page1', 'page2', 'page3', 'page4'],
+    	});
+	});
+	$(document).on('click', '#designer', function(){
+  		$.fn.fullpage.moveTo('page2');
+	});
+	$(document).on('click', '#coder', function(){
+  		$.fn.fullpage.moveTo('page3');
+	});
+	$(document).on('click', '#scientist', function(){
+  		$.fn.fullpage.moveTo('page4');
+	});
+	$(document).on('click', '#top', function(){
+  		$.fn.fullpage.moveTo('page1');
+	});
+</script>
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-194x194.png" sizes="194x194">
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<meta name="theme-color" content="#ffffff">
 </head>
 <body>
-<!-- Navbar starts -->
-<header class="header">
-	<nav class="navbar navbar-inverse navbar-fixed-top navbar_customized" style="background-color: transparent; border: none;">
-		<div class="container">
-			<!-- Nav links -->
-			<nav role="navigation">
-				<!--<ul class="nav navbar-nav navbar-left">
-					<li><a href="...">Portal</a></li>
-				</ul>-->
-				<ul class="nav navbar-nav navbar-right main-nav-list">
-					<li><a href="#">Project Liulian</a></li>
-					<li><a href="#">Me</a></li>
-				</ul>
-			</nav> <!-- END NAV LINKS -->
+<div id="fullpage" class="container-fluid">
+	<div id="home" class="section">
+		<div class="row" style="height: 100%;">
+			<div id="left" class="col-sm-6">
+				<h1 class="text-center big text-vertical" style="color: black;">A <span id="designer" class="navi">designer</span> who does<br>not <span id="coder" class="navi">code</span> will not be<br>a good <span id="scientist" class="navi">biologist</span>.</h1>
+			</div>
+			<div id="right" class="col-sm-6">
+				<div class="text-vertical" style="top: 37%;">
+					<p class="text-center big" style="text-transform: uppercase; margin-bottom: 0;">Hower HE</p>
+					<p class="text-center sml">student in <a href="http://sustc.edu.cn" target="_blank">SUSTC</a></p>
+				</div>
+			</div>
 		</div>
-	</nav>
-</header> <!-- END NAV BAR -->
-<div style="background: rgba(1,1,1,0.5); height:100%; width:100%;">
-	<div style="height: 100%">
-		<h1 style="position: relative; top: 40%; text-align: center; padding-top: 0px; margin-top: 0px;">你们推荐一张背景图片吧</h1>
+	</div>
+	<div id="design" class="section">
+		<div class="row">
+			<div class="col-xs-12">
+				<h1 class="text-center big">I have been designing web pages and<br>posters for societies in my university.</h1>
+				<p class="text-center big">
+					<a href="https://www.flickr.com/photos/howerhe/" target="_blank" class="icon"><i class="fa fa-flickr"></i></a><a href="https://www.instagram.com/howerhe/" target="_blank" class="icon"><i class="fa fa-instagram"></i></a>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div id="code" class="section">
+		<div class="row">
+			<div class="col-xs-12">
+				<h1 class="big" style="color: #A16B94;">#Works on the way</h1>
+				<h2 class="sml" style="color: #00AE65;">##Project Liulian</h2>
+				<p class="sml" style="color: #444444;">To build a family tree and wiki for the mascot of my university, the cat Liulian</p>
+				<h2 class="sml" style="color: #00AE65;">##Weekend Restaurant List</h2>
+				<p class="sml" style="color: #444444;">To establish a platform sharing restaurants in Shenzhen with location-based service</p>
+				<p class="text-center big">
+					<a href="http://www.jianshu.com/users/eb822df2822a/latest_articles" target="_blank" id="jianshu" class="icon"><i class="icon-jianshu" style="color: #DB3023;"></i></a><a href="#" class="icon"><i class="fa fa-github-square" style="color: #DB3023;"></i></a>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div id="academics" class="section">
+		<div class="row">
+			<div class="col-md-9">
+				<h1 class="med">My research projects include investgating the mechanism of robustness in pattern formation and tuning gene expression noise in mammalian cells. I am now doing my final year program in <a href="http://sustc.edu.cn/biology_04/f/Huangwei111" target="_blank">Prof. Huang’s lab</a>.</h1>
+				<p id="top" class="text-center icon big navi" style="opacity: 0.5;"><i class="fa fa-angle-double-up"></i></p>
+			</div>
+		</div>
 	</div>
 </div>
 </body>
